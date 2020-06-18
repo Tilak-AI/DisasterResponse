@@ -65,7 +65,7 @@ Apart from the README file, below is the structure of this repository:
 |- disaster_messages.csv  # data to process
 |- process_data.py # ETL pipeline
 |- discover_languages.py # script to detect languages 
-|- InsertDatabaseName.db # database where tables are stored 
+|- DisasterResponse.db # database where tables are stored 
 
 - models
 |- train_classifier.py # NLP pipeline
