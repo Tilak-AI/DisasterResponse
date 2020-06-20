@@ -25,6 +25,7 @@ re
 flask
 langdetect
 iso639
+iso-639
 plotly
 json
 ```
@@ -74,21 +75,27 @@ Apart from the README file, below is the structure of this repository:
 ```
 
 <a name="results"/></a>
-## Results
+## Instruction
 
 To prepare all files needed by the app, run the commands in the following order:
 
 ```bash
-# In the "data" folder:
-python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db
-python discover_languages.py
+#  To run ETL pipeline that cleans data and stores in database:
 
-# In the "models" folder:
-python train_classifier.py ../data/DisasterResponse.db classifier.pkl
+python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
+
+python data/discover_languages.py
+
+# To run the Model for classification:
+
+python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 ```
 Your data is now ready and your pickled model has been created!
 
-Finally, you can run the app!
+Finally, Run the following command to run your web app
+
+ python app/run.py
+ Launch Internet explore/chrome/safari/opera/firefox Browser and go to  http://0.0.0.0:3001/
 
 <a name="licensing"/></a>
 ## Licensing & Acknowledgements
