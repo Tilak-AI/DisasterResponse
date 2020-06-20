@@ -92,11 +92,12 @@ python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 ```
 Your data is now ready and your pickled model has been created!
 
-Finally, Run the following command to run your web app
+```bash
+# Run the following command to run your web app
 
  python app/run.py
  Launch Internet explore/chrome/safari/opera/firefox Browser and go to  http://0.0.0.0:3001/
-
+```
 <a name="licensing"/></a>
 ## Licensing & Acknowledgements
 
