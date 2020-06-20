@@ -55,8 +55,8 @@ def tokenize(text):
     words = word_tokenize(text)
     words = [w for w in words if w not in stopwords.words("english")]
     lemmed = [WordNetLemmatizer().lemmatize(w) for w in words]
-    stemmed = [PorterStemmer().stem(w) for w in lemmed]
-    return stemmed
+    #stemmed = [PorterStemmer().stem(w) for w in lemmed]
+    return lemmed
 
 def build_model():
     '''
