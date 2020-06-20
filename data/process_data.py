@@ -101,7 +101,7 @@ def clean_data(df):
     for i in range(0, df_no_duplicates.shape[0]):
         categories_data_splitted.loc[i,:] = get_category_values(df_no_duplicates["categories"][i],
                                                                 num_categories)
-        print(categories_data_splitted.loc[i,:])
+    
     
     # Drop the "categories" column since we do not need it anymore.
     df_no_duplicates = df_no_duplicates.drop(columns = ["categories"])
@@ -120,12 +120,14 @@ def save_data(df, database_filename):
     Inserts the data (table "ETL_data") into the database.
 
     Parameters:
-        df: A DataFrame returned by clean_data().
+        df:  DataFrame returned by clean_data().
 
     Returns:
         -
     '''
-    engine = create_engine('sqlite:///data/DisasterResponse.db')
+    #engine = create_engine('sqlite:///../data/DisasterResponse.db')
+    print ("sqlite:///../" + database_filename)
+    engine = create_engine("sqlite:///" + database_filename)
    
     df.to_sql('ETL_data', engine, index=False, if_exists='replace') 
     
@@ -143,7 +145,7 @@ def main():
         df = load_data(messages_filepath, categories_filepath)
 
         print('Cleaning data...')
-        df = clean_data(df)
+        0df = clean_data(df)
         
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
